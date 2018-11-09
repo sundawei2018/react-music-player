@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from './components/header';
 import Player from './page/player';
-import {MUSIC_LIST} from './config/musiclist';
+import {MUSIC_LIST} from './config/songs';
+import MusicList from './page/musiclist';
 
 let Root = React.createClass({
     getInitialState() {
         return {
-            currentMusicItem: MUSIC_LIST[0]
+            musicList: MUSIC_LIST,
+            currentMusicItem: MUSIC_LIST[1]
         }
     },
     componentDidMount() {
@@ -23,12 +25,16 @@ let Root = React.createClass({
     componentWillUnMount() {
     },
     render() {
+        
         return (
             <div>
                 <Header />
-                <Player
-                    currentSelected={this.state.currentMusicItem}
-                ></Player>
+                <MusicList
+                    currentSelected={this.state.currentMusicItem} 
+                    musicList={this.state.musicList}
+                >
+
+                </MusicList>
             </div>
         );
     }
