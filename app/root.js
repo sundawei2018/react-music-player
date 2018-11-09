@@ -7,8 +7,8 @@ import MusicList from './page/musiclist';
 let Root = React.createClass({
     getInitialState() {
         return {
-            musicList: MusicList,
-            currentMusicItem: MUSIC_LIST[0]
+            musicList: MUSIC_LIST,
+            currentMusicItem: MUSIC_LIST[1]
         }
     },
     componentDidMount() {
@@ -25,12 +25,13 @@ let Root = React.createClass({
     componentWillUnMount() {
     },
     render() {
+        
         return (
             <div>
                 <Header />
                 <MusicList
                     currentSelected={this.state.currentMusicItem} 
-                    ml="aaa"
+                    musicList={this.state.musicList}
                 >
 
                 </MusicList>
