@@ -1,7 +1,10 @@
 import React from 'react';
 import './header.less';
 
-let Header = React.createClass({
+class Header extends React.Component{
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div className="component-header row">
@@ -10,6 +13,6 @@ let Header = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default Header;
