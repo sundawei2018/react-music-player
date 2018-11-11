@@ -26,7 +26,7 @@ class Root extends React.Component {
             wmode: 'window',
             userStateClassSkin: true
         });
-
+        console.log(this.state.musicList[0]);
         this.playMusic(this.state.musicList[0]);
 
         PubSub.subscribe('PLAY_MUSIC', (msg, item) => {
@@ -122,29 +122,15 @@ class Root extends React.Component {
             >
             </Player>
         );
-
-        const Test = () => (
-            <h1>Test</h1>
-        );
-
-        const Another = () => (
-            <h1>Another</h1>
-        );
-
         return (
             <HashRouter>
                 <div className="container">
                     <Header/>
                     <Switch>
                         <Route exact path="/" component={Home}></Route>
-                        {/* <Route path="/list" component={MusicList}></Route> */}
+                        <Route path="/list" component={MusicList}></Route>
                     </Switch>
-                </div>
-                {/* <Switch>
-                    <Route exact path="/" component={Test}></Route>
-                    <Route path="/another" component={Another}></Route>
-                </Switch> */}
-                
+                </div>             
             </HashRouter>
         );
     }
